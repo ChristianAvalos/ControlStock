@@ -83,8 +83,10 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnvendedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvendedoresActionPerformed
         Vendedores vende = new Vendedores();
-        Menu menu = new Menu();
-        menu.getContentPane().add(vende);
+        vende.setVisible(true);
+        this.getContentPane().add(vende);
+        
+       
     }//GEN-LAST:event_btnvendedoresActionPerformed
 
     /**
