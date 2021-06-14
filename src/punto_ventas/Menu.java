@@ -28,22 +28,64 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar1 = new javax.swing.JMenuBar();
+        btnArchivo = new javax.swing.JMenu();
+        btnsalir = new javax.swing.JMenuItem();
+        btnAdministracion = new javax.swing.JMenu();
+        btnvendedores = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
+
+        btnArchivo.setText("Archivo");
+
+        btnsalir.setText("Salir");
+        btnsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsalirActionPerformed(evt);
+            }
+        });
+        btnArchivo.add(btnsalir);
+
+        jMenuBar1.add(btnArchivo);
+
+        btnAdministracion.setText(" Administración");
+
+        btnvendedores.setText("Crear Vendedores");
+        btnvendedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnvendedoresActionPerformed(evt);
+            }
+        });
+        btnAdministracion.add(btnvendedores);
+
+        jMenuBar1.add(btnAdministracion);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 1246, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 542, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnsalirActionPerformed
+
+    private void btnvendedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvendedoresActionPerformed
+        Vendedores vende = new Vendedores();
+        Menu menu = new Menu();
+        menu.getContentPane().add(vende);
+    }//GEN-LAST:event_btnvendedoresActionPerformed
 
     /**
      * @param args the command line arguments
@@ -81,5 +123,10 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu btnAdministracion;
+    private javax.swing.JMenu btnArchivo;
+    private javax.swing.JMenuItem btnsalir;
+    private javax.swing.JMenuItem btnvendedores;
+    private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }
