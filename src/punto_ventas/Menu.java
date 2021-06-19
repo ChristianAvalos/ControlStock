@@ -5,6 +5,8 @@
  */
 package punto_ventas;
 
+import javax.swing.JInternalFrame;
+
 /**
  *
  * @author christian
@@ -14,6 +16,8 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Creates new form Menu
      */
+    
+    Vendedor vendedor;
     public Menu() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -28,6 +32,7 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         btnArchivo = new javax.swing.JMenu();
         btnsalir = new javax.swing.JMenuItem();
@@ -36,6 +41,17 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
+
+        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
+        escritorio.setLayout(escritorioLayout);
+        escritorioLayout.setHorizontalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1246, Short.MAX_VALUE)
+        );
+        escritorioLayout.setVerticalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 542, Short.MAX_VALUE)
+        );
 
         btnArchivo.setText("Archivo");
 
@@ -67,11 +83,11 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1246, Short.MAX_VALUE)
+            .addComponent(escritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 542, Short.MAX_VALUE)
+            .addComponent(escritorio)
         );
 
         pack();
@@ -82,13 +98,32 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnsalirActionPerformed
 
     private void btnvendedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvendedoresActionPerformed
-        Vendedores vende = new Vendedores();
-        vende.setVisible(true);
-        this.getContentPane().add(vende);
+        if(!(vendedor instanceof Vendedor)){
+             vendedor = new Vendedor();
+        }
+        CentrarVentanaInterna(vendedor);
+       
         
        
     }//GEN-LAST:event_btnvendedoresActionPerformed
 
+    public void CentrarVentanaInterna(JInternalFrame internalFrame){
+        int x = (escritorio.getWidth()/2)-internalFrame.getWidth()/2;
+        int y = (escritorio.getHeight()/2)-internalFrame.getHeight()/2;
+        if(internalFrame.isShowing()){
+            internalFrame.setLocation(x, y);
+            
+        }else{
+            escritorio.add(internalFrame);
+            internalFrame.setLocation(x,y);
+            internalFrame.show();
+        }
+    }
+    
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -129,6 +164,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu btnArchivo;
     private javax.swing.JMenuItem btnsalir;
     private javax.swing.JMenuItem btnvendedores;
+    private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }
